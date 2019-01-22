@@ -3,6 +3,11 @@ const describe = (desc, fn) => {
   fn()
 }
 
+const scenario = (desc, fn) => {
+  console.log(desc)
+  fn()
+}
+
 const it = (msg, fn) => describe('  ' + msg, fn)
 
 const passMessage = () => {
@@ -11,7 +16,8 @@ const passMessage = () => {
 }
 
 const failMessage = () => {
-  console.log('    ' + '%c * fail * ', 'background: #6693e8; color: #f7a3ec')
+  console.log('    ' + '%c * Fail * ', 'background: #6693e8; color: #f7a3ec')
+  console.trace('  ' + '%c * Back to SquareOne * ', 'background: #6693e8; color: #f7a3ec')
   return false
 }
 
@@ -32,7 +38,7 @@ const matchers = (exp) => ({
     }
   },
 
-  toThrow: (assertion) => {
+  toThrowError: (assertion) => {
     let result = false;
     try {
       exp();

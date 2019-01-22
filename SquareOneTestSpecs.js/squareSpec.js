@@ -14,8 +14,10 @@ describe('Square', function () {
     expect(square.area()).notToBe(49);
   })
 
-  it('throws an error', function () {
-    const x = function() {error_square = new Square('x'); }
-    expect(x).toThrow(Error('argument is not a number'));
+  scenario('Errors', function () {
+    it('it throws an error', function () {
+      const x = function() {error_square = new Square('x'); }
+      expect(x).toThrowError();
+    })
   })
 })
